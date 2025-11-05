@@ -1,262 +1,186 @@
 <!doctype html>
 <html lang="so">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
-<title>C.S Company Admin - Orders</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>C.S Company Official Portal - Dalabka</title>
 <style>
 :root{
-  --blue:#0b4f8b;
-  --accent:#0b6fb5;
-  --light:#f6f9fc;
-  --muted:#6b7280;
-  --danger:#ff6b6b;
-  --radius:10px;
+--blue:#0b4f8b;--accent:#ff4d4f;--light:#f6f9fc;--card:#fff;--muted:#6b7280;
+font-family:Inter,Segoe UI,Roboto,Arial,sans-serif
 }
-body{
-  background:var(--light);
-  margin:0;
-  padding:20px;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  min-height:100vh;
-  font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;
-  line-height:1.5;
-}
-.box{max-width:1100px;width:100%;background:#fff;border-radius:var(--radius);box-shadow:0 10px 30px rgba(11,79,139,0.08);overflow:hidden}
-header{background:linear-gradient(90deg,var(--blue),var(--accent));color:#fff;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+body{background:var(--light);margin:0;padding:24px;display:flex;justify-content:center}
+.wrap{max-width:900px;width:100%;background:var(--card);border-radius:10px;box-shadow:0 12px 30px rgba(11,79,139,0.08);overflow:hidden}
+header{background:linear-gradient(90deg,var(--blue),#0b6fb5);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
 header h1{margin:0;font-size:18px}
-.header-actions{display:flex;gap:8px;align-items:center}
-.content{padding:18px}
-#loginBox{padding:12px 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-input[type="password"],input[type="text"],input[type="tel"],textarea{padding:10px;border-radius:8px;border:1px solid #e6eef8;flex:1 1 260px;min-width:0}
-textarea{min-height:100px;resize:vertical}
-.btn{padding:10px 14px;border-radius:8px;border:none;background:var(--blue);color:#fff;cursor:pointer;font-weight:600}
-.btn[disabled]{opacity:0.6;cursor:not-allowed}
-.btn.ghost{background:transparent;color:var(--blue);border:1px solid rgba(11,79,139,0.08)}
-.btn.danger{background:var(--danger)}
-.btn:hover{opacity:0.95;transition:0.15s}
-.muted{color:var(--muted);font-size:13px}
-.table-wrap{width:100%;overflow-x:auto;margin-top:12px;border-radius:8px;max-height:70vh;overflow-y:auto}
-table{width:100%;border-collapse:collapse;min-width:900px}
-th,td{padding:10px 12px;border-bottom:1px solid #eef6fb;text-align:left;font-size:14px;vertical-align:middle}
-th{background:#f4fbff;color:var(--blue);font-weight:600;position:sticky;top:0;z-index:2}
-.actions button{margin-right:8px}
-.small{font-size:13px;color:var(--muted)}
-.row{display:flex;gap:8px;align-items:center}
-.contact-wrap{margin-top:18px;padding:14px;border-radius:8px;background:#fbfeff;border:1px solid #eef9ff}
+main{display:grid;grid-template-columns:1fr 360px;gap:18px;padding:18px}
+label{display:block;font-weight:700;margin-top:12px}
+input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;margin-top:6px;font-size:14px}
+.btn{background:var(--blue);color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+.summary{background:#f4fbff;padding:14px;border-radius:8px;border:1px solid #e9f2fb}
+.price{font-size:28px;font-weight:800;color:var(--blue);margin-top:6px}
+#note{display:none;background:#fff7f7;border-left:4px solid var(--accent);padding:10px;border-radius:6px;margin-top:12px}
+#regionBox{display:none;position:fixed;bottom:24px;right:24px;background:#0b4f8b;color:#fff;padding:14px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+footer{padding:12px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:880px){main{grid-template-columns:1fr;padding:12px}#regionBox{right:12px;bottom:12px}}
 </style>
 </head>
 <body>
-<div class="box" role="main" aria-labelledby="title">
+<div class="wrap" role="main">
 <header>
-<h1 id="title">C.S Company - Admin Orders</h1>
-<div class="header-actions" aria-hidden="true">
-<div style="font-size:13px">Ciise Shoole 🔱</div>
-<a href="mailto:cscompany.tech@gmail.com" class="btn ghost" style="text-decoration:none;color:white;background:transparent;border:1px solid rgba(255,255,255,0.15);">Contact</a>
+<div>
+<h1>C.S Company Official Portal</h1>
+<div style="opacity:0.9;font-size:13px">Dalbo Pharmacy & Hospital Systems</div>
+</div>
+<div style="text-align:right">
+<div style="font-weight:800">Ciise Shoole 🔱</div>
+<div style="font-size:12px;opacity:0.9">Software Engineer</div>
 </div>
 </header>
-
-<div class="content" id="mainArea">
-
-<!-- LOGIN BOX -->
-<div id="loginBox">
-<div style="flex:1 1 320px">
-<div class="muted">Fadlan geli password si aad u aragto orders (admin only)</div>
-<div style="height:8px"></div>
-<div style="display:flex;gap:8px">
-<input id="password" type="password" placeholder="Password">
-<button class="btn" id="togglePass" type="button">Show</button>
+<main>
+<section>
+<h2>Foomka Dalabka</h2>
+<label>Magaca (Shirkad / Qof)</label>
+<input id="name" placeholder="Magacaaga">
+<label>Number (Phone)</label>
+<input id="phone" placeholder="+252 6XX XXX XXX">
+<label>Region (Gobolka)</label>
+<select id="region">
+<option value="">-- Dooro --</option>
+<option value="Banadir">Banadir</option>
+<option value="Puntland">Puntland</option>
+<option value="Hargeysa">Hargeysa</option>
+<option value="Galmudug">Galmudug</option>
+<option value="Koonfur Galbeed">Koonfur Galbeed</option>
+<option value="Other">Other</option>
+</select>
+<label>Dooro System</label>
+<select id="product">
+<option value="">-- Dooro --</option>
+<option value="pharmacy">Pharmacy System</option>
+<option value="hospital">Hospital System</option>
+<option value="supermarket">Supermarket System</option>
+</select>
+<label>Qaabka Bixinta</label>
+<select id="payment">
+<option value="online">Online (USSD)</option>
+<option value="disconnect">Disconnect / Offline</option>
+</select>
+<div style="margin-top:12px">
+<button class="btn" id="calc">Xisaabi</button>
+<button class="btn" id="place" style="margin-left:8px">Dalbo & Keydi</button>
 </div>
+<div id="note"></div>
+</section>
+<aside class="summary">
+<h3>Faahfaahinta</h3>
+<div id="choosen">—</div>
+<div class="price" id="price">$0</div>
+<div style="margin-top:8px">
+<button class="btn" id="payBtn" style="background:#16a34a">Bixi Hadda (USSD)</button>
+<button class="btn" id="shareBtn" style="background:#0b6fb5;margin-left:8px">Linkiig u dir (Share)</button>
 </div>
-<div style="display:flex;gap:8px;align-items:center">
-<button class="btn" id="loginBtn">Login</button>
-<button class="btn ghost" id="demoBtn">Add Demo</button>
+<div style="margin-top:10px;color:var(--muted);font-size:13px">
+<strong>Qiimaha:</strong><br>
+Pharmacy: $250 (regular) / $150 (disconnect)<br>
+Hospital: $350 (regular) / $250 (disconnect)<br>
+Supermarket: $150<br>
+Khamiis = discount la heli karo
 </div>
+</aside>
+</main>
+<footer>©️ C.S Company • Tel: +252 610 848 799 • Email: cscompany.tech@gmail.com</footer>
 </div>
-
-<!-- ADMIN AREA -->
-<div id="adminArea" style="display:none">
-<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-<div>
-<h3 style="margin:0 0 6px 0">Orders (Local Storage)</h3>
-<div class="muted">Kaliya adiga ayaa arki kara boggan haddii aad haysato password-ka.</div>
-</div>
-<div class="row controls-row">
-<button class="btn" id="exportBtn">Export CSV</button>
-<button class="btn danger" id="clearBtn">Clear All</button>
-<button class="btn ghost" id="viewMsgsBtn">View Messages</button>
-<!-- Supermarket System button -->
-<button class="btn" id="supermarketBtn">Supermarket System</button>
-</div>
-</div>
-
-<div class="table-wrap">
-<table id="ordersTable">
-<thead>
-<tr><th>ID</th><th>Magac</th><th>Phone</th><th>Region</th><th>Product</th><th>Payment</th><th>Price</th><th>Time</th><th>Action</th></tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-
-<!-- CONTACT FORM -->
-<div class="contact-wrap">
-<h3 style="margin:0 0 8px 0">Xiriir / Message</h3>
-<div class="muted" style="margin-bottom:8px">Haddii aad rabto inaad fariin noo soo dirto, buuxi foomka hoos. Fariinta waxay ku keydsan doontaa local device-ka waxaana admin uu arki karaa marka uu galo.</div>
-<div style="display:flex;gap:8px;flex-wrap:wrap">
-<input id="c_name" type="text" placeholder="Magac" style="flex:1 1 200px">
-<input id="c_phone" type="tel" placeholder="Phone" style="flex:1 1 160px">
-</div>
-<div style="height:8px"></div>
-<textarea id="c_message" placeholder="Fariintaada..."></textarea>
-<div style="height:8px"></div>
-<div style="display:flex;gap:8px">
-<button class="btn" id="sendMsgBtn">Send Message</button>
-<button class="btn ghost" id="clearFormBtn">Clear</button>
-</div>
-</div>
-
-</div>
-</div>
-
+<div id="regionBox"></div>
 <script>
 (function(){
-const ADMIN_PASS = 'Ciise000@';
-const loginBtn = document.getElementById('loginBtn');
-const passwordInput = document.getElementById('password');
-const adminArea = document.getElementById('adminArea');
-const loginBox = document.getElementById('loginBox');
-const ordersTableBody = document.querySelector('#ordersTable tbody');
-const exportBtn = document.getElementById('exportBtn');
-const clearBtn = document.getElementById('clearBtn');
-const togglePass = document.getElementById('togglePass');
-const demoBtn = document.getElementById('demoBtn');
-const viewMsgsBtn = document.getElementById('viewMsgsBtn');
-const supermarketBtn = document.getElementById('supermarketBtn');
-const c_name = document.getElementById('c_name');
-const c_phone = document.getElementById('c_phone');
-const c_message = document.getElementById('c_message');
-const sendMsgBtn = document.getElementById('sendMsgBtn');
-const clearFormBtn = document.getElementById('clearFormBtn');
+const prices={
+pharmacy:{regular:250,disconnect:150},
+hospital:{regular:350,disconnect:250},
+supermarket:{regular:150,disconnect:150}
+};
+const regionCodes={
+Banadir:{code:'*712*610848799*',tel:'+252610848799'},
+Puntland:{code:'*883*0610848799*',tel:'+252610848799'},
+Hargeysa:{code:'*712*610848799*',tel:'+252610848799'},
+Galmudug:{code:'*712*610848799*',tel:'+252610848799'},
+'Koonfur Galbeed':{code:'*712*610848799*',tel:'+252610848799'},
+Other:{code:'*712*610848799*',tel:'+252610848799'}
+};
+const nameEl=document.getElementById('name'),
+phoneEl=document.getElementById('phone'),
+regionEl=document.getElementById('region'),
+productEl=document.getElementById('product'),
+paymentEl=document.getElementById('payment'),
+priceEl=document.getElementById('price'),
+choosenEl=document.getElementById('choosen'),
+noteEl=document.getElementById('note'),
+regionBox=document.getElementById('regionBox'),
+payBtn=document.getElementById('payBtn'),
+placeBtn=document.getElementById('place'),
+calcBtn=document.getElementById('calc'),
+shareBtn=document.getElementById('shareBtn');
 
-function safeParse(json,fallback){try{return JSON.parse(json)||fallback}catch(e){return fallback}}
-function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-
-function makeRowHTML(o){
-return '<tr>'+
-'<td data-label="ID"><span>'+escapeHtml(o.id)+'</span></td>'+
-'<td data-label="Magac"><span>'+escapeHtml(o.name)+'</span></td>'+
-'<td data-label="Phone"><span>'+escapeHtml(o.phone)+'</span></td>'+
-'<td data-label="Region"><span>'+escapeHtml(o.region)+'</span></td>'+
-'<td data-label="Product"><span>'+escapeHtml(o.product)+'</span></td>'+
-'<td data-label="Payment"><span>'+escapeHtml(o.payment)+'</span></td>'+
-'<td data-label="Price"><span>$'+String(o.price)+'</span></td>'+
-'<td data-label="Time"><span>'+new Date(o.time).toLocaleString()+'</span></td>'+
-'<td data-label="Action" class="actions">'+
-'<button data-id="'+o.id+'" class="btn viewBtn">View</button>'+
-'<button data-id="'+o.id+'" class="btn delBtn" style="background:#ff6b6b">Delete</button>'+
-'</td></tr>';
+function isThursday(){return new Date().getDay()===4;}
+function formatPrice(p){return'$'+p;}
+function showRegionBox(text){
+regionBox.innerHTML='📍 '+text+' &nbsp; <a href="https://wa.me/252610848799" target="_blank" style="color:#fff;text-decoration:underline;margin-left:8px">WhatsApp</a> <a href="tel:+252610848799" style="color:#fff;text-decoration:underline;margin-left:8px">Wac</a>';
+regionBox.style.display='block';
+setTimeout(()=>regionBox.style.display='none',7000);
 }
 
-function loadOrders(){
-const orders=safeParse(localStorage.getItem('cs_orders'),[]);
-ordersTableBody.innerHTML='';
-if(!orders.length){ordersTableBody.innerHTML='<tr><td colspan="9" class="small">Ma jiraan orders.</td></tr>';return;}
-orders.slice().reverse().forEach(o=>ordersTableBody.insertAdjacentHTML('beforeend',makeRowHTML(o)));
-attachRowEvents();
+function calcPrice(){
+const prod=productEl.value,pay=paymentEl.value,region=regionEl.value;
+if(!prod){alert('Fadlan dooro product');return;}
+let final=pay==='disconnect'?prices[prod].disconnect:prices[prod].regular;
+if(isThursday() && prod!=='supermarket') final=Math.min(final,prices[prod].disconnect);
+priceEl.innerText=formatPrice(final);
+choosenEl.innerText=(prod==='pharmacy'?'Pharmacy System':prod==='hospital'?'Hospital System':'Supermarket System')+' • '+(paymentEl.value==='online'?'Online':'Disconnect')+(region?' • '+region:'');
+if(region)showRegionBox('Goobtaada waa '+region+' — code-ka bixinta ayaa la diyaariyay.');
+return final
 }
 
-function attachRowEvents(){
-document.querySelectorAll('.delBtn').forEach(b=>b.onclick=e=>{
-const id=e.target.dataset.id;
-if(!confirm('Miyaad xaqiijinaysaa inaad tirtirto order-ka '+id+'?'))return;
-let orders=safeParse(localStorage.getItem('cs_orders'),[]);
-orders=orders.filter(x=>x.id!==id);
-localStorage.setItem('cs_orders',JSON.stringify(orders));
-loadOrders();
+calcBtn.addEventListener('click',calcPrice);
+
+payBtn.addEventListener('click',function(){
+const region=regionEl.value,prod=productEl.value;
+if(!prod||!region){alert('Fadlan dooro region iyo product-ka.');return;}
+const final=calcPrice();
+const r=regionCodes[region]||regionCodes['Other'];
+const ussd=r.code+final+'#';
+noteEl.style.display='block';
+noteEl.innerHTML='<strong>Tilmaam Bixin:</strong> Fadlan qor koodka hoose si aad lacag u dirto:<br><code>'+ussd+'</code><br>Markaad dhameyso, riix "Dalbo & Keydi" si dalabkaaga loo diiwaangeliyo.';
+try{window.location.href='tel:'+encodeURIComponent(ussd);}catch(e){}
 });
-document.querySelectorAll('.viewBtn').forEach(b=>b.onclick=e=>{
-const id=e.target.dataset.id;
-const orders=safeParse(localStorage.getItem('cs_orders'),[]);
-const o=orders.find(x=>x.id===id);
-if(!o)return alert('Order lama helin');
-alert('ID: '+o.id+'\nMagac: '+o.name+'\nPhone: '+o.phone+'\nRegion: '+o.region+'\nProduct: '+o.product+'\nPayment: '+o.payment+'\nPrice: $'+o.price+'\nTime: '+new Date(o.time).toLocaleString());
+
+placeBtn.addEventListener('click',function(){
+const name=nameEl.value.trim(),phone=phoneEl.value.trim(),region=regionEl.value,prod=productEl.value,payment=paymentEl.value;
+if(!name||!phone||!region||!prod){alert('Fadlan buuxi dhammaan qaybaha muhiimka ah.');return;}
+const final=calcPrice();
+const order={id:'ORD'+Date.now(),name,phone,region,product:prod,payment,price:final,time:new Date().toISOString()};
+const existing=JSON.parse(localStorage.getItem('cs_orders')||'[]');
+existing.push(order);
+localStorage.setItem('cs_orders',JSON.stringify(existing));
+alert('Dalabkaaga waa la diiwaangeliyey. Haddii aad lacag dirtay, fadlan hubi invoice ama nala soo xiriir.');
+showRegionBox('Dalabka waa la keydiyay. ID: '+order.id);
 });
-}
 
-// LOGIN
-loginBtn.onclick=()=>{
-if(passwordInput.value===ADMIN_PASS){
-loginBox.style.display='none';
-adminArea.style.display='block';
-sessionStorage.setItem('cs_admin_logged','1');
-loadOrders();
-}else alert('Password khaldan');
-};
-passwordInput.onkeyup=e=>{if(e.key==='Enter')loginBtn.click();};
-togglePass.onclick=()=>{const t=passwordInput.type==='password';passwordInput.type=t?'text':'password';togglePass.textContent=t?'Hide':'Show';};
-demoBtn.onclick=()=>{
-const orders=safeParse(localStorage.getItem('cs_orders'),[]);
-const id='ORD'+Math.floor(Math.random()*90000+10000);
-orders.push({id,name:'Ahmed',phone:'0612345678',region:'Mogadishu',product:'Gari',payment:'Cash',price:49.99,time:Date.now()});
-localStorage.setItem('cs_orders',JSON.stringify(orders));
-alert('Demo order la dhajiyey: '+id);
-};
+shareBtn.addEventListener('click',function(){
+const prod=productEl.value,region=regionEl.value,base=location.href.split('#')[0],params=new URLSearchParams();
+if(prod)params.set('product',prod);
+if(region)params.set('region',region);
+const link=base+'?'+params.toString();
+if(navigator.share){
+navigator.share({title:'Dalab - C.S Company',text:'Dalbo system-ka C.S Company',url:link}).catch(()=>{prompt('Linkiig: (copy) ',link);});
+}else{prompt('Nuqul ka samee linkigan oo u dir macaamiisha:',link);}
+});
 
-// SUPERMARKET SYSTEM: add order with 150
-supermarketBtn.onclick=()=>{
-const orders=safeParse(localStorage.getItem('cs_orders'),[]);
-const id='ORD'+Math.floor(Math.random()*90000+10000);
-orders.push({id,name:'Supermarket Customer',phone:'N/A',region:'Supermarket',product:'Supermarket Item',payment:'Cash',price:150,time:Date.now()});
-localStorage.setItem('cs_orders',JSON.stringify(orders));
-alert('Supermarket order la dhajiyey: '+id);
-};
-
-exportBtn.onclick=()=>{
-const orders=safeParse(localStorage.getItem('cs_orders'),[]);
-if(!orders.length){alert('Ma jiraan orders');return;}
-const csv=['id,name,phone,region,product,payment,price,time'];
-orders.forEach(o=>csv.push([o.id,o.name,o.phone,o.region,o.product,o.payment,o.price,o.time].map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')));
-const blob=new Blob([csv.join('\n')],{type:'text/csv'});
-const a=document.createElement('a');
-a.href=URL.createObjectURL(blob);
-a.download='cs_orders_'+Date.now()+'.csv';
-a.click();
-URL.revokeObjectURL(a.href);
-};
-
-clearBtn.onclick=()=>{
-if(!confirm('Miyaad rabtaa inaad tirtirto dhammaan orders?'))return;
-localStorage.removeItem('cs_orders');loadOrders();
-};
-
-if(sessionStorage.getItem('cs_admin_logged')==='1'){loginBox.style.display='none';adminArea.style.display='block';loadOrders();}
-
-// CONTACT FORM
-sendMsgBtn.onclick=()=>{
-const name=(c_name.value||'').trim();
-const phone=(c_phone.value||'').trim();
-const msg=(c_message.value||'').trim();
-if(!name||!msg){alert('Fadlan buuxi Magac iyo Fariin labadaba');return;}
-const messages=safeParse(localStorage.getItem('cs_messages'),[]);
-const id='MSG'+Math.floor(Math.random()*900000+100000);
-messages.push({id,name,phone,message:msg,time:Date.now()});
-localStorage.setItem('cs_messages',JSON.stringify(messages));
-alert('Fariinta waa la diiwaangeliyey. Mahadsanid!');
-c_name.value='';c_phone.value='';c_message.value='';
-};
-clearFormBtn.onclick=()=>{c_name.value='';c_phone.value='';c_message.value='';};
-
-viewMsgsBtn.onclick=()=>{
-const msgs=safeParse(localStorage.getItem('cs_messages'),[]);
-if(!msgs.length)return alert('Ma jiraan fariimo.');
-const lines=msgs.slice().reverse().map(m=>'ID: '+m.id+'\nMagac: '+m.name+'\nPhone: '+(m.phone||'-')+'\nTime: '+new Date(m.time).toLocaleString()+'\nFariin: '+m.message+'\n----').join('\n\n');
-if(lines.length>1500){const w=window.open('','_blank');w.document.write('<pre>'+escapeHtml(lines)+'</pre>');w.document.close();}else alert(lines);
-};
+(function prefill(){
+const p=new URLSearchParams(location.search);
+if(p.get('product'))productEl.value=p.get('product');
+if(p.get('region'))regionEl.value=p.get('region');
+if(p.get('product')||p.get('region'))calcPrice();
+})();
 })();
 </script>
 </body>
