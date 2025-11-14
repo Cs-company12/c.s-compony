@@ -4,46 +4,150 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>C.S Company Official Portal - Dalabka</title>
+
 <style>
 :root{
---blue:#0b4f8b;--accent:#ff4d4f;--light:#f6f9fc;--card:#fff;--muted:#6b7280;
+--blue:#0b4f8b;
+--accent:#ff4d4f;
+--light:#f6f9fc;
+--card:#fff;
+--muted:#6b7280;
 font-family:Inter,Segoe UI,Roboto,Arial,sans-serif
 }
-body{background:var(--light);margin:0;padding:24px;display:flex;justify-content:center}
-.wrap{max-width:900px;width:100%;background:var(--card);border-radius:10px;box-shadow:0 12px 30px rgba(11,79,139,0.08);overflow:hidden}
-header{background:linear-gradient(90deg,var(--blue),#0b6fb5);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
+
+body{
+background:var(--light);
+margin:0;
+padding:24px;
+display:flex;
+justify-content:center
+}
+
+.wrap{
+max-width:900px;
+width:100%;
+background:var(--card);
+border-radius:10px;
+box-shadow:0 12px 30px rgba(11,79,139,0.08);
+overflow:hidden
+}
+
+header{
+background:linear-gradient(90deg,var(--blue),#0b6fb5);
+color:#fff;
+padding:18px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
 header h1{margin:0;font-size:18px}
-main{display:grid;grid-template-columns:1fr 360px;gap:18px;padding:18px}
-label{display:block;font-weight:700;margin-top:12px}
-input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;margin-top:6px;font-size:14px}
-.btn{background:var(--blue);color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
-.summary{background:#f4fbff;padding:14px;border-radius:8px;border:1px solid #e9f2fb}
-.price{font-size:28px;font-weight:800;color:var(--blue);margin-top:6px}
-#note{display:none;background:#fff7f7;border-left:4px solid var(--accent);padding:10px;border-radius:6px;margin-top:12px}
-#regionBox{display:none;position:fixed;bottom:24px;right:24px;background:#0b4f8b;color:#fff;padding:14px 16px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
-footer{padding:12px;text-align:center;color:var(--muted);font-size:13px}
-@media(max-width:880px){main{grid-template-columns:1fr;padding:12px}#regionBox{right:12px;bottom:12px}}
+
+main{
+display:grid;
+grid-template-columns:1fr 360px;
+gap:18px;
+padding:18px
+}
+
+label{
+display:block;
+font-weight:700;
+margin-top:12px
+}
+
+input,select,textarea{
+width:100%;
+padding:10px;
+border-radius:8px;
+border:1px solid #e6eef8;
+margin-top:6px;
+font-size:14px
+}
+
+.btn{
+background:var(--blue);
+color:#fff;
+padding:10px 14px;
+border-radius:8px;
+border:none;
+cursor:pointer
+}
+
+.summary{
+background:#f4fbff;
+padding:14px;
+border-radius:8px;
+border:1px solid #e9f2fb
+}
+
+.price{
+font-size:28px;
+font-weight:800;
+color:var(--blue);
+margin-top:6px
+}
+
+#note{
+display:none;
+background:#fff7f7;
+border-left:4px solid var(--accent);
+padding:10px;
+border-radius:6px;
+margin-top:12px
+}
+
+#regionBox{
+display:none;
+position:fixed;
+bottom:24px;
+right:24px;
+background:#0b4f8b;
+color:#fff;
+padding:14px 16px;
+border-radius:10px;
+box-shadow:0 8px 24px rgba(0,0,0,0.2)
+}
+
+footer{
+padding:12px;
+text-align:center;
+color:var(--muted);
+font-size:13px
+}
+
+@media(max-width:880px){
+main{grid-template-columns:1fr;padding:12px}
+#regionBox{right:12px;bottom:12px}
+}
 </style>
 </head>
+
 <body>
 <div class="wrap" role="main">
+
 <header>
 <div>
 <h1>C.S Company Official Portal</h1>
 <div style="opacity:0.9;font-size:13px">Dalbo Pharmacy & Hospital Systems</div>
 </div>
+
 <div style="text-align:right">
 <div style="font-weight:800"></div>
 <div style="font-size:12px;opacity:0.9">Software Engineer</div>
 </div>
 </header>
+
 <main>
 <section>
 <h2>Foomka Dalabka</h2>
+
 <label>Magaca (Shirkad / Qof)</label>
 <input id="name" placeholder="Magacaaga">
+
 <label>Number (Phone)</label>
-<input id="phone" placeholder="061 XXX XXXX">
+<input id="phone" placeholder="077 XXX XXXX">
+
 <label>Region (Gobolka)</label>
 <select id="region">
 <option value="">-- Dooro --</option>
@@ -54,6 +158,7 @@ footer{padding:12px;text-align:center;color:var(--muted);font-size:13px}
 <option value="Koonfur Galbeed">Koonfur Galbeed</option>
 <option value="Other">Other</option>
 </select>
+
 <label>Dooro System</label>
 <select id="product">
 <option value="">-- Dooro --</option>
@@ -61,52 +166,64 @@ footer{padding:12px;text-align:center;color:var(--muted);font-size:13px}
 <option value="hospital">Hospital System</option>
 <option value="supermarket">Supermarket System</option>
 </select>
+
 <label>Qaabka Bixinta</label>
 <select id="payment">
 <option value="online">Online (USSD)</option>
 <option value="disconnect">Disconnect / Offline</option>
 </select>
+
 <div style="margin-top:12px">
 <button class="btn" id="calc">Xisaabi</button>
 <button class="btn" id="place" style="margin-left:8px">Dalbo & Keydi</button>
 </div>
+
 <div id="note"></div>
 </section>
+
 <aside class="summary">
 <h3>Faahfaahinta</h3>
 <div id="choosen">—</div>
 <div class="price" id="price">$0</div>
+
 <div style="margin-top:8px">
 <button class="btn" id="payBtn" style="background:#16a34a">Bixi Hadda (USSD)</button>
-<button class="btn" id="shareBtn" style="background:#0b6fb5;margin-left:8px">Linkiig u dir (Share)</button>
+<button class="btn" id="shareBtn" style="background:#0b6fb5;margin-left:8px">Linkiig Share</button>
 </div>
+
 <div style="margin-top:10px;color:var(--muted);font-size:13px">
 <strong>Qiimaha:</strong><br>
 Pharmacy: $250 (regular) / $150 (disconnect)<br>
 Hospital: $350 (regular) / $250 (disconnect)<br>
 Supermarket: $150<br>
-Khamiis = discount la heli karo
+Khamiis = discount
 </div>
 </aside>
 </main>
-<footer>©️ C.S Company • Tel: 0613195342 • Email: cscompany.tech@gmail.com</footer>
+
+<footer>©️ C.S Company • Tel: 0771825867 • Email: cscompany.tech@gmail.com</footer>
 </div>
+
 <div id="regionBox"></div>
+
 <script>
 (function(){
+
 const prices={
 pharmacy:{regular:250,disconnect:150},
 hospital:{regular:350,disconnect:250},
 supermarket:{regular:150,disconnect:150}
 };
+
 const regionCodes={
-Banadir:{code:'*712*0613195342*',tel:'0613195342'},
-Puntland:{code:'*883*0613195342*',tel:'0613195342'},
-Hargeysa:{code:'*712*0613195342*',tel:'0613195342'},
-Galmudug:{code:'*712*0613195342*',tel:'0613195342'},
-'Koonfur Galbeed':{code:'*712*0613195342*',tel:'0613195342'},
-Other:{code:'*712*0613195342*',tel:'0613195342'}
+Banadir:{code:'*712*0771825867*',tel:'0771825867'},
+Puntland:{code:'*883*0771825867*',tel:'0771825867'},
+Hargeysa:{code:'*712*0771825867*',tel:'0771825867'},
+Galmudug:{code:'*712*0771825867*',tel:'0771825867'},
+'Koonfur Galbeed':{code:'*712*0771825867*',tel:'0771825867'},
+Other:{code:'*712*0771825867*',tel:'0771825867'}
 };
+
 const nameEl=document.getElementById('name'),
 phoneEl=document.getElementById('phone'),
 regionEl=document.getElementById('region'),
@@ -123,56 +240,104 @@ shareBtn=document.getElementById('shareBtn');
 
 function isThursday(){return new Date().getDay()===4;}
 function formatPrice(p){return'$'+p;}
+
 function showRegionBox(text){
-regionBox.innerHTML='📍 '+text+' &nbsp; <a href="https://wa.me/0613195342" target="_blank" style="color:#fff;text-decoration:underline;margin-left:8px">WhatsApp</a> <a href="tel:0613195342" style="color:#fff;text-decoration:underline;margin-left:8px">Wac</a>';
+regionBox.innerHTML='📍 '+text+
+' <a href="https://wa.me/0771825867" target="_blank" style="color:#fff;text-decoration:underline;margin-left:8px">WhatsApp</a>' +
+' <a href="tel:0771825867" style="color:#fff;text-decoration:underline;margin-left:8px">Wac</a>';
+
 regionBox.style.display='block';
 setTimeout(()=>regionBox.style.display='none',7000);
 }
 
 function calcPrice(){
 const prod=productEl.value,pay=paymentEl.value,region=regionEl.value;
-if(!prod){alert('Fadlan dooro product');return;}
-let final=pay==='disconnect'?prices[prod].disconnect:prices[prod].regular;
-if(isThursday() && prod!=='supermarket') final=Math.min(final,prices[prod].disconnect);
+if(!prod){alert('Dooro System');return;}
+
+let final = pay==='disconnect' ? prices[prod].disconnect : prices[prod].regular;
+
+if(isThursday() && prod!=='supermarket'){
+final = Math.min(final, prices[prod].disconnect);
+}
+
 priceEl.innerText=formatPrice(final);
-choosenEl.innerText=(prod==='pharmacy'?'Pharmacy System':prod==='hospital'?'Hospital System':'Supermarket System')+' • '+(paymentEl.value==='online'?'Online':'Disconnect')+(region?' • '+region:'');
-if(region)showRegionBox('Goobtaada waa '+region+' — code-ka bixinta ayaa la diyaariyay.');
-return final
+
+choosenEl.innerText=
+(prod==='pharmacy'?'Pharmacy System':
+prod==='hospital'?'Hospital System':'Supermarket System')
++ ' • ' + (paymentEl.value==='online'?'Online':'Disconnect')
++ (region?' • '+region:'');
+
+if(region)showRegionBox('Goobtaada waa '+region+' — code-ka diyaar.');
+return final;
 }
 
 calcBtn.addEventListener('click',calcPrice);
 
 payBtn.addEventListener('click',function(){
 const region=regionEl.value,prod=productEl.value;
-if(!prod||!region){alert('Fadlan dooro region iyo product-ka.');return;}
+
+if(!prod || !region){
+alert('Dooro region iyo product');
+return;
+}
+
 const final=calcPrice();
-const r=regionCodes[region]||regionCodes['Other'];
+const r=regionCodes[region] || regionCodes['Other'];
 const ussd=r.code+final+'#';
+
 noteEl.style.display='block';
-noteEl.innerHTML='<strong>Tilmaam Bixin:</strong> Fadlan qor koodka hoose si aad lacag u dirto:<br><code>'+ussd+'</code><br>Markaad dhameyso, riix "Dalbo & Keydi" si dalabkaaga loo diiwaangeliyo.';
-try{window.location.href='tel:'+encodeURIComponent(ussd);}catch(e){}
+noteEl.innerHTML='<strong>Tilmaam Bixin:</strong><br>Qor koodkan:<br><code>'+ussd+'</code>';
+
+try{
+window.location.href='tel:'+encodeURIComponent(ussd);
+}catch(e){}
 });
 
 placeBtn.addEventListener('click',function(){
-const name=nameEl.value.trim(),phone=phoneEl.value.trim(),region=regionEl.value,prod=productEl.value,payment=paymentEl.value;
-if(!name||!phone||!region||!prod){alert('Fadlan buuxi dhammaan qaybaha muhiimka ah.');return;}
+const name=nameEl.value.trim(),
+phone=phoneEl.value.trim(),
+region=regionEl.value,
+prod=productEl.value,
+payment=paymentEl.value;
+
+if(!name||!phone||!region||!prod){
+alert('Buuxi dhammaan qeybaha.');
+return;
+}
+
 const final=calcPrice();
-const order={id:'ORD'+Date.now(),name,phone,region,product:prod,payment,price:final,time:new Date().toISOString()};
+const order={
+id:'ORD'+Date.now(),
+name,phone,region,
+product:prod,payment,price:final,
+time:new Date().toISOString()
+};
+
 const existing=JSON.parse(localStorage.getItem('cs_orders')||'[]');
 existing.push(order);
 localStorage.setItem('cs_orders',JSON.stringify(existing));
-alert('Dalabkaaga waa la diiwaangeliyey. Haddii aad lacag dirtay, fadlan hubi invoice ama nala soo xiriir.');
-showRegionBox('Dalabka waa la keydiyay. ID: '+order.id);
+
+alert('Dalabka waa la keydiyay.');
+showRegionBox('Dalabka waa keydsan yahay • ID: '+order.id);
 });
 
 shareBtn.addEventListener('click',function(){
-const prod=productEl.value,region=regionEl.value,base=location.href.split('#')[0],params=new URLSearchParams();
+const prod=productEl.value,region=regionEl.value
+base=location.href.split('#')[0],
+params=new URLSearchParams();
+
 if(prod)params.set('product',prod);
 if(region)params.set('region',region);
+
 const link=base+'?'+params.toString();
+
 if(navigator.share){
-navigator.share({title:'Dalab - C.S Company',text:'Dalbo system-ka C.S Company',url:link}).catch(()=>{prompt('Linkiig: (copy) ',link);});
-}else{prompt('Nuqul ka samee linkigan oo u dir macaamiisha:',link);}
+navigator.share({title:'Dalab - C.S Company',text:'Dalbo system-ka',url:link})
+.catch(()=>{prompt('Copy link:',link)});
+}else{
+prompt('Copy link:',link);
+}
 });
 
 (function prefill(){
@@ -183,5 +348,6 @@ if(p.get('product')||p.get('region'))calcPrice();
 })();
 })();
 </script>
+
 </body>
 </html>
